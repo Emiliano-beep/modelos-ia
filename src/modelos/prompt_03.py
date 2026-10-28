@@ -6,6 +6,6 @@ class Prompt_03:
      modelo = ChatOllama(
       model="qwen2.5:3b", 
       temperature=0
-)
+    )
 
     

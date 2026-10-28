@@ -4,7 +4,8 @@ from src.modelos.modelo_local import ModeloLocal
 from src.modelos.modelo_llama import ModeloLlama
 from src.modelos.prompt_01 import Prompt01
 from src.modelos.prompt_02 import Prompt_02
-
+from src.modelos.modelo_roles import Prompt_Roles
+from src.modelos.modelo_conectar import Prompt_Conexion
 
 import os 
 from rich.console import Console
@@ -32,6 +33,8 @@ class MenuPrincipal():
         print("4. Modelo Llama")
         print("5. Modelo Prompt01")
         print("6. Modelo Prompt02")
+        print("7. Modelo Prompt_Roles")
+        print("8. Modelo Prompt_Conexion")
         print("0. Salir")
 
     def ejecutar_opcion(self):
@@ -86,6 +89,18 @@ class MenuPrincipal():
                 respuesta = prompt_02.generar_respuesta()
                 print("Respuesta del modelo Prompt02:")
                 #print(respuesta)
+                self.console.print(Markdown(respuesta))
+
+            elif self.opcion == "7":
+                modelo_roles = Prompt_Roles()
+                respuesta = modelo_roles.generar_respuesta()
+                print("Respuesta del modelo Prompt_Roles:")
+                self.console.print(Markdown(respuesta))
+
+            elif self.opcion == "8":
+                prompt_conexion = Prompt_Conexion()
+                respuesta = prompt_conexion.generar_respuesta()
+                print("Respuesta del modelo Prompt_Conexion:")
                 self.console.print(Markdown(respuesta))
 
             elif self.opcion == "0":
